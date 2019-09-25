@@ -2,8 +2,7 @@
 
 ***
 
-[André Batista](mailto:andre-costa@ufmg.br)
-
+[André Batista](mailto:andre-costa@ufmg.br) lalallalaa
 Graduate Program in Electrical Engineering
 Operations Research and Complex Systems Laboratory - ORCS Lab  
 Universidade Federal de Minas Gerais  
