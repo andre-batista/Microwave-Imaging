@@ -9,4 +9,6 @@ Belo Horizonte, Brazil
 
 ***
 
-Algorithms for electromagnetic inverse scattering.
+This is my repository of codes for microwave imaging. Currently, it only contains a Quadratic Programming approach. But I intend to develop new methodologies and make them available here.  
+
+More information will be provided later.
