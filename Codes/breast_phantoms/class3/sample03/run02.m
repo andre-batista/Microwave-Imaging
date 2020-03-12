@@ -44,7 +44,8 @@ current             = 4.0;                  % Impressed current [A]
 sfi                 = {1:3,4:6,7:9,...      % Set of frequency indexes
                         10:12,13:15};          
 misf                = 5;                    % Number of iterations for sets
-alpha               = 5e1;                  % Variational regularization
+alpha               = 5e1;                  % Tikhonov regularization
+beta                = 1e-6;                 % Variational regularization
 initialization      = 4;                    % Contrast initialization
 coeff_epsr          = 0.0188;
 coeff_sig           = -0.04711;
@@ -67,7 +68,7 @@ fprintf('ok!\n')
 % Set parameters struct
 fprintf('Getting parameters struct... ')
 parameters = setparameters([epsilon_rmin,epsilon_rmax],[sigma_min,sigma_min],...
-    sfi,misf,'alpha',alpha,'initialization',initialization,'coeff_epsr',...
+    sfi,misf,'alpha',alpha,'beta',beta,'initialization',initialization,'coeff_epsr',...
     coeff_epsr,'coeff_sig',coeff_sig);
 fprintf('ok!\n')
 
