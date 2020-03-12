@@ -1,7 +1,7 @@
 clc, clear, close all
 
 % Adding directories
-addpath('../../../../main_functions')
+addpath('../../main_functions')
 
 % Checking parallel pool
 if isempty(gcp('nocreate'))
@@ -10,34 +10,33 @@ end
 
 % Model properties and parameters
 fprintf             ('Setting model properties and parameters... ');
-expname             = 'basic_exp03_resolution_05';
-geometryname        = 'ellipses';           % Geometry name
-Nx_high             = 60;                   % Number of pixels (x-axis), high resolution
-Ny_high             = 60;                   % Number of pixels (y-axis), high resolution
-Nx_low              = 48;                   % Number of pixels (x-axis), low resolution
-Ny_low              = 48;                   % Number of pixels (y-axis), low resolution
-dx                  = .6e-2;                % Pixel size (x-axis) [m]
-dy                  = .6e-2;                % Pixel size (y-axis) [m]
+expname             = 'basic_exp02_highcontrast';
+geometryname        = 'triangle';           % Geometry name
+Nx_high             = 120;                  % Number of pixels (x-axis), high resolution
+Ny_high             = 120;                  % Number of pixels (y-axis), high resolution
+Nx_low              = 72;                   % Number of pixels (x-axis), low resolution
+Ny_low              = 72;                   % Number of pixels (y-axis), low resolution
+dx                  = .3e-2;                % Pixel size (x-axis) [m]
+dy                  = .3e-2;                % Pixel size (y-axis) [m]
 epsilon_rb          = 1.;                   % Background relative permittivity
 sigma_b             = 0;                    % Background conductivity [S/m]
-epsilon_robj        = 2.;                   % Object relative permittivity
+epsilon_robj        = 7.;                   % Object relative permittivity
 sigma_obj           = 0;                    % Object conductivity [S/m]
-la                  = 7.5e-2/2;             % Semi-minor axis [m]
-lb                  = 18e-2/2;              % Semi-major axis [m]
-del                 = 4.5e-2;               % Displacement between two ellipses [m]
-frequency           = [.8e9,1e9,2e9];       % Frequency of measurements [Hz]
-frequency_waveform  = 2e9;                  % Central frequency of waveform [Hz]
-time_window         = 5.2170e-08;           % Time window [sec]
-dtheta              = 20;                   % Angular shift among sources [deg]
+l                   = 21e-2;                % Star size [m]
+frequency           = linspace(.5e6,6e8,15);% Frequency of measurements [Hz]
+frequency_waveform  = 6e8;                  % Central frequency of waveform [Hz]
+time_window         = 5.2e-08;              % Time window [sec]
+dtheta              = 12;                   % Angular shift among sources [deg]
 Rs                  = 25e-2;                % Source array radius [m]
 ls_x                = 1.8e-2;               % Source size (x-axis) [m]
 ls_y                = 1.8e-2;               % Source size (y-axis) [m]
 current             = 5.76;                 % Impressed current [A]
-sfi                 = {[1,2,3]};            % Set of frequency indexes
-misf                = 10;                   % Number of iterations for sets
+sfi                 = {1:3,4:6,7:9,10:12,...% Set of frequency indexes
+                        13:15};            
+misf                = 2;                    % Number of iterations for sets
 alpha               = 1e1;                  % Tikhonov regularization
 beta                = 1e-6;                 % Variational regularization
-initialization      = 1;                    % Contrast initialization
+initialization      = 2;                    % Contrast initialization
 fprintf             ('ok!\n')
 
 % Set model struct
@@ -48,13 +47,13 @@ fprintf('ok!\n')
 
 % Set parameters struct
 fprintf('Getting parameters struct... ')
-parameters = setparameters(epsilon_robj,sigma_obj,sfi,misf,'beta',beta,...
-    'alpha',alpha,'initialization',initialization);
+parameters = setparameters(epsilon_robj,sigma_obj,sfi,misf,'alpha',alpha,...
+    'beta',beta,'initialization',initialization);
 fprintf('ok!\n')
 
 % Set original contrast map
 fprintf('Geting testbench map... ')
-testbench = getmap(geometryname,finemodel,epsilon_robj,sigma_obj,la,lb,del);
+testbench = getmap(geometryname,finemodel,epsilon_robj,sigma_obj,l);
 fprintf('ok!\n')
 
 % Get scattered field data

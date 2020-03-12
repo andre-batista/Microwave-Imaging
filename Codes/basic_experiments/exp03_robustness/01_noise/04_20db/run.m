@@ -37,7 +37,8 @@ ls_y                = 1.8e-2;               % Source size (y-axis) [m]
 current             = 5.76;                 % Impressed current [A]
 sfi                 = {1:3};                % Set of frequency indexes   ;            
 misf                = 10;                   % Number of iterations for sets
-alpha               = 1e-8;                 % Variational regularization
+alpha               = 1e1;                  % Tikhonov regularization
+beta                = 1e-6;                 % Variational regularization
 initialization      = 1;                    % Contrast initialization
 fprintf             ('ok!\n')
 
@@ -50,7 +51,7 @@ fprintf('ok!\n')
 % Set parameters struct
 fprintf('Getting parameters struct... ')
 parameters = setparameters(epsilon_robj,sigma_obj,sfi,misf,'alpha',alpha,...
-    'initialization',initialization);
+    'beta',beta,'initialization',initialization);
 fprintf('ok!\n')
 
 % Set original contrast map
