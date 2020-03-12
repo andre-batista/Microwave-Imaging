@@ -285,7 +285,11 @@ function [solution,fx] = recover(varargin)
         for j = 2:J
             for i = 2:I
                 
-                beta = parameters.beta*zeta;
+                if ~REDUCED_MODEL_FLAG
+                    beta = parameters.beta*zeta;
+                else
+                    beta = parameters.beta;
+                end
                 
                 % Foward finite difference
                 ij = sub2ind([I,J],i,j);

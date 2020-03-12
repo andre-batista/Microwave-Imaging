@@ -58,7 +58,7 @@ function [contrastmap] = getmap(varargin)
 %       title('Relative Permittivity')
 %       colorbar
 %       subplot(1,2,2)
-%       i = magesc(contrastmap.sigma)
+%       imagesc(contrastmap.sigma)
 %       title('Conductivity')
 %       colorbar
 %
