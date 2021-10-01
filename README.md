@@ -9,9 +9,9 @@ Belo Horizonte, Brazil
 
 ***
 
-This is my repository of codes for microwave imaging. Currently, it only contains a Quadratic Programming approach. But I intend to develop new methodologies and make them available here.  
+This is my repository of codes for my research in microwave imaging. Currently, it contains:
 
-* The files with results of experiments with breast phantoms were not uploaded since they are +100 MB .mat files (GitHub restrictions). So you must run the code in order to check them. Or you can e-mail me.  
-* You must install Gurobi Optimizer in order to run the algorithm.  
+1. [**A Quadratic Programming Approach for Microwave Imaging**](https://ieeexplore.ieee.org/abstract/document/9362200): The MATLAB codes implemented to run the experiments for the published paper.
+2. **eispy2d**: the open-source Python library for development and comparison of algorithms in electromagnetic inverse scattering 
 
-More information will be provided later.
+For any further information, you may e-mail me. More information will be provided later.
