@@ -6,8 +6,8 @@ Operations Research and Complex Systems Laboratory - ORCS Lab
 Universidade Federal de Minas Gerais  
 Belo Horizonte, Brazil
 
-Ricardo Adriano
-Electrical Engineering Deparment
+Ricardo Adriano  
+Electrical Engineering Deparment  
 Universidade Federal de Minas Gerais  
 Belo Horizonte, Brazil
 
