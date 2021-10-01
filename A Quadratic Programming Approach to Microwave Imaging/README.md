@@ -1,8 +1,8 @@
 A Quadratic Programming Approach to Microwave Imaging
 =====================================================
 
-[André Batista](mailto:andre-costa@ufmg.br) and Lucas Batista
-Operations Research and Complex Systems Laboratory - ORCS Lab  
+[André Batista](mailto:andre-costa@ufmg.br) and Lucas Batista  
+Operations Research and Complex Systems Laboratory - ORCS Lab    
 Universidade Federal de Minas Gerais  
 Belo Horizonte, Brazil
 
